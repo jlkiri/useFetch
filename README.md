@@ -14,7 +14,7 @@ yarn add use-fetch-hook
 ## Example usage
 ```javascript
 import React from 'react';
-import useFetch from './useFetch';
+import useFetch from 'use-fetch-hook';
 
 const url = "https://myservice.com/api";
 
