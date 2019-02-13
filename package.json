@@ -1,0 +1,25 @@
+{
+  "name": "use-fetch-hook",
+  "version": "1.0.1",
+  "description": "A React hook that provides data fetching behavior.",
+  "main": "useFetch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlkiri/useFetch.git"
+  },
+  "keywords": [
+    "react",
+    "hook",
+    "fetch",
+    "useFetch"
+  ],
+  "author": "jlkiri",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jlkiri/useFetch/issues"
+  },
+  "homepage": "https://github.com/jlkiri/useFetch#readme"
+}

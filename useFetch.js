@@ -45,9 +45,11 @@ function useFetch({
     }
   }
 
-  useEffect(() => requestData(), []);
+  useEffect(() => {
+    requestData();
+  }, []);
 
-  useInterval(() => requestData(), delay);
+  useInterval(requestData, delay);
 
   return { value, isLoading, error };
 }
