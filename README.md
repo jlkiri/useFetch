@@ -1,6 +1,16 @@
 # useFetch
 A React hook that provides data fetching behavior.
 
+## Installation
+Install it with npm:
+```
+npm install use-fetch-hook
+```
+or with yarn:
+```
+yarn add use-fetch-hook
+```
+
 ## Example usage
 ```javascript
 import React from 'react';
