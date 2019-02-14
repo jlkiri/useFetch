@@ -16,7 +16,7 @@ yarn add use-fetch-hook
 import React from 'react';
 import useFetch from 'use-fetch-hook';
 
-const url = "https://myservice.com/api";
+const url = "https://jsonplaceholder.typicode.com/todos/1";
 
 function NiceComponent() {
   const [delay, setDelay] = useState(3000);
@@ -27,9 +27,10 @@ function NiceComponent() {
   
   return (
     <>
-      <p>{value}</p>;
+      <p>{value.title}</p>
       <button onClick={() => setDelay(delay + 1000)}>Increase delay</button>
       <button onClick={() => setDelay(delay - 1000)}>Decrease delay</button>
+      <button onClick={() => setDelay(null)}>Pause requests</button>
     </>
   );
 }
@@ -42,11 +43,14 @@ function NiceComponent() {
 * Specify a custom function that parses a response. Unless otherwise specified, `Body.json()` is used.
 * Provide an options object like `{ method: "POST" } `.
 
+Note that a new request is made when the URL changes.  
+However, if requests are not scheduled with `delay` and URL does not change, you must manually update data by using `requestData`.
+
 ## Syntax
 useFetch takes a single object with the following arguments:  
 - `url` : a URL that is used to perform a request 
 - `options` (*optional*) : an options object  (`undefined` by default)
-- `delay` (*optional*) : a delay in milliseconds between requests  (`undefined` by default, meaning only *one* request is made)
+- `delay` (*optional*) : a delay in milliseconds between requests  (`undefined` by default, meaning only *one* request is made per URL)
 - `fetchFn` (*optional*) : a custom function that performs a request  (`window.fetch` by default)
 - `parseFn` (*optional*) : a custom function that takes a response returned by `fetchFn` and parses it
 
@@ -54,4 +58,5 @@ It returns an object with the following properties:
 - `value` : a parsed response (`null` by default)
 - `isLoading` : a Boolean value that represents whether a request is pending (`true` by default)
 - `error` : an error returned by a fetch function (`null` by default)
+- `requestData`: a function that performs the request (for forced/unscheduled updates)
 
